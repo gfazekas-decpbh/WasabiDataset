@@ -1,0 +1,67 @@
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://wsim.semanticaudio.net/similarity/> a void:Dataset , dcat:Dataset ;
+    dcterms:title "WASABI artist similarity layer" ;
+    dcterms:description "Derived RDF graphs over WASABI artists: cultural and musical (chord-profile) similarity, within-genre dissimilarity, a chord-theory graph and artist tag prompts." ;
+    dcterms:creator "George Fazekas, Centre for Digital Music, Queen Mary University of London" ;
+    dcterms:created "2026-11-24"^^xsd:date ;
+    dcterms:source <https://zenodo.org/records/5603369> ;
+    dcterms:identifier "10.5281/zenodo.24511585" ;
+    dcterms:isReferencedBy <https://doi.org/10.5281/zenodo.24511585> ;
+    dcat:landingPage <https://zenodo.org/records/24511585> ;
+    void:dataDump <https://zenodo.org/records/24511585/files/wasabi-similarity-graphs-v1.0.zip> ;
+    void:vocabulary <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> ;
+    void:subset <https://wsim.semanticaudio.net/similarity/artist-tag-prompts/> , <https://wsim.semanticaudio.net/similarity/chord-theory/> , <https://wsim.semanticaudio.net/similarity/cultural-similarity/> , <https://wsim.semanticaudio.net/similarity/dissimilarity/> , <https://wsim.semanticaudio.net/similarity/musical-similarity/> .
+
+<https://wsim.semanticaudio.net/similarity/artist-tag-prompts/> a void:Dataset , dcat:Dataset ;
+    dcterms:title "Artist tag prompts v0.3.2" ;
+    dcterms:description "Per artist, genres and most characteristic descriptive Last.fm tags (listener tags, not generated text), with ordered terms and tag facets." ;
+    void:triples 727500 ;
+    void:dataDump <https://wsim.semanticaudio.net/similarity/artist-tag-prompts/artist_tag_prompts_v0.3.2.ttl.gz> ;
+    dcat:downloadURL <https://wsim.semanticaudio.net/similarity/artist-tag-prompts/artist_tag_prompts_v0.3.2.ttl.gz> ;
+    dcat:mediaType "text/turtle" ;
+    dcterms:format "application/gzip" ;
+    void:vocabulary <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> .
+
+<https://wsim.semanticaudio.net/similarity/chord-theory/> a void:Dataset , dcat:Dataset ;
+    dcterms:title "Chord-theory graph v0.4" ;
+    dcterms:description "Music-theory relations between 24 triads and 576 chord transitions." ;
+    void:triples 7025 ;
+    void:dataDump <https://wsim.semanticaudio.net/similarity/chord-theory/chord_theory_graph_v0.4.ttl.gz> ;
+    dcat:downloadURL <https://wsim.semanticaudio.net/similarity/chord-theory/chord_theory_graph_v0.4.ttl.gz> ;
+    dcat:mediaType "text/turtle" ;
+    dcterms:format "application/gzip" ;
+    void:vocabulary <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> .
+
+<https://wsim.semanticaudio.net/similarity/cultural-similarity/> a void:Dataset , dcat:Dataset ;
+    dcterms:title "Cultural artist similarity v0.3" ;
+    dcterms:description "20 nearest artists per artist from Last.fm tags, genres and Wikipedia categories (TF-IDF + ComplEx KG embedding + KG-guided transformer)." ;
+    void:triples 5894251 ;
+    void:dataDump <https://wsim.semanticaudio.net/similarity/cultural-similarity/artist_similarity_cultural_v0.3.ttl.gz> ;
+    dcat:downloadURL <https://wsim.semanticaudio.net/similarity/cultural-similarity/artist_similarity_cultural_v0.3.ttl.gz> ;
+    dcat:mediaType "text/turtle" ;
+    dcterms:format "application/gzip" ;
+    void:vocabulary <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> .
+
+<https://wsim.semanticaudio.net/similarity/dissimilarity/> a void:Dataset , dcat:Dataset ;
+    dcterms:title "Within-genre artist dissimilarity v0.3-dis" ;
+    dcterms:description "For each artist and genre, the 5 least-similar artists of that genre, plus 5 artists spanning each genre." ;
+    void:triples 908165 ;
+    void:dataDump <https://wsim.semanticaudio.net/similarity/dissimilarity/artist_dissimilarity_within_genre_v0.3-dis.ttl.gz> ;
+    dcat:downloadURL <https://wsim.semanticaudio.net/similarity/dissimilarity/artist_dissimilarity_within_genre_v0.3-dis.ttl.gz> ;
+    dcat:mediaType "text/turtle" ;
+    dcterms:format "application/gzip" ;
+    void:vocabulary <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> .
+
+<https://wsim.semanticaudio.net/similarity/musical-similarity/> a void:Dataset , dcat:Dataset ;
+    dcterms:title "Musical artist similarity from harmonic (chord) profiles v0.4" ;
+    dcterms:description "20 nearest artists per artist by cosine between key-relative chord and chord-transition profiles from WASABI automatic chord transcriptions." ;
+    void:triples 2321289 ;
+    void:dataDump <https://wsim.semanticaudio.net/similarity/musical-similarity/artist_similarity_musical_chord_profiles_v0.4.ttl.gz> ;
+    dcat:downloadURL <https://wsim.semanticaudio.net/similarity/musical-similarity/artist_similarity_musical_chord_profiles_v0.4.ttl.gz> ;
+    dcat:mediaType "text/turtle" ;
+    dcterms:format "application/gzip" ;
+    void:vocabulary <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> .

@@ -1,0 +1,75 @@
+# SAMPLE of artist_similarity_cultural_v0.3.ttl.gz: a few entries for viewing online. The full graph is the .ttl.gz file in this folder.
+# Shown: Radiohead's 5 nearest artists (cultural similarity) and the model node.
+# 51 of 5894251 triples; every triple here also appears in the full dump.
+# Artists in this sample (names are not part of the RDF; artists are WASABI URIs):
+#   wsart:56d805f553a7ddfc01f914a4  Blur
+#   wsart:56d8146953a7ddfc01f92899  Coldplay
+#   wsart:56d94a57cc2ddd0c0f6b8073  Muse
+#   wsart:56d95997cc2ddd0c0f6b9696  Placebo
+#   wsart:56d95d7dcc2ddd0c0f6b9c59  Radiohead
+#   wsart:56d98778cc2ddd0c0f6bd9f3  Thom Yorke
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix wsart: <http://ns.inria.fr/wasabi/artist/> .
+@prefix wsim: <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3/sim/56d95d7dcc2ddd0c0f6b9c59-56d805f553a7ddfc01f914a4> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:dimension "cultural" ;
+    wsim:rank 4 ;
+    wsim:score "13.60455"^^xsd:float ;
+    wsim:source wsart:56d95d7dcc2ddd0c0f6b9c59 ;
+    wsim:target wsart:56d805f553a7ddfc01f914a4 .
+
+<https://wsim.semanticaudio.net/similarity/v0.3/sim/56d95d7dcc2ddd0c0f6b9c59-56d8146953a7ddfc01f92899> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:dimension "cultural" ;
+    wsim:rank 3 ;
+    wsim:score "13.89386"^^xsd:float ;
+    wsim:source wsart:56d95d7dcc2ddd0c0f6b9c59 ;
+    wsim:target wsart:56d8146953a7ddfc01f92899 .
+
+<https://wsim.semanticaudio.net/similarity/v0.3/sim/56d95d7dcc2ddd0c0f6b9c59-56d94a57cc2ddd0c0f6b8073> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:dimension "cultural" ;
+    wsim:rank 1 ;
+    wsim:score "15.68992"^^xsd:float ;
+    wsim:source wsart:56d95d7dcc2ddd0c0f6b9c59 ;
+    wsim:target wsart:56d94a57cc2ddd0c0f6b8073 .
+
+<https://wsim.semanticaudio.net/similarity/v0.3/sim/56d95d7dcc2ddd0c0f6b9c59-56d95997cc2ddd0c0f6b9696> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:dimension "cultural" ;
+    wsim:rank 5 ;
+    wsim:score "13.45936"^^xsd:float ;
+    wsim:source wsart:56d95d7dcc2ddd0c0f6b9c59 ;
+    wsim:target wsart:56d95997cc2ddd0c0f6b9696 .
+
+<https://wsim.semanticaudio.net/similarity/v0.3/sim/56d95d7dcc2ddd0c0f6b9c59-56d98778cc2ddd0c0f6bd9f3> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:dimension "cultural" ;
+    wsim:rank 2 ;
+    wsim:score "14.5423"^^xsd:float ;
+    wsim:source wsart:56d95d7dcc2ddd0c0f6b9c59 ;
+    wsim:target wsart:56d98778cc2ddd0c0f6bd9f3 .
+
+wsart:56d95d7dcc2ddd0c0f6b9c59 wsim:similarTo wsart:56d805f553a7ddfc01f914a4,
+        wsart:56d8146953a7ddfc01f92899,
+        wsart:56d94a57cc2ddd0c0f6b8073,
+        wsart:56d95997cc2ddd0c0f6b9696,
+        wsart:56d98778cc2ddd0c0f6bd9f3 .
+
+<https://wsim.semanticaudio.net/similarity/v0.3/model> a wsim:SimilarityModel ;
+    dcterms:created "2026-11-23"^^xsd:date ;
+    dcterms:title "WASABI artist similarity v0.3: transformer over KG concept tokens with KG-biased attention and Laplacian prior, combined with v0.1 and v0.2" ;
+    prov:used <https://zenodo.org/records/5603369> ;
+    prov:wasInformedBy <https://wsim.semanticaudio.net/similarity/v0.1/model>,
+        <https://wsim.semanticaudio.net/similarity/v0.2/model> ;
+    wsim:evaluation "[{\"n\": 320, \"P10\": 0.33, \"R10\": 0.3573, \"MAP10\": 0.2395, \"MRR\": 0.6285, \"AUC\": 0.9374, \"coverage\": 311, \"eval\": \"SAS-lastfm valid / SAS pool\", \"sas_share_nonsas\": NaN}, {\"n\": 320, \"P10\": 0.3278, \"R10\": 0.3442, \"MAP10\": 0.2343, \"MRR\": 0.6289, \"AUC\": 0.9391, \"coverage\": 312, \"eval\": \"SAS-lastfm test / SAS pool\", \"sas_share_nonsas\": NaN}, {\"n\": 320, \"P10\": 0.1688, \"R10\": 0.1761, \"MAP10\": 0.0924, \"MRR\": 0.3754, \"AUC\": 0.9534, \"coverage\": 312, \"eval\": \"SAS-lastfm test / all WASABI\", \"sas_share_nonsas\": NaN}, {\"n\": 244, \"P10\": 0.2016, \"R10\": 0.2511, \"MAP10\": 0.1206, \"MRR\": 0.4408, \"AUC\": 0.7937, \"coverage\": 237, \"eval\": \"SAS-MIREX all / MIREX pool\", \"sas_share_nonsas\": 0.08}]" ;
+    wsim:features "2-layer transformer (d=128, 4 heads) over up to 24 tags, 4 genres, 4 subjects per artist; attention bias from WASABI concept graph (co-occurrence + lexical); Laplacian Tr(Z^T L Z) on token embeddings; token init from label-free ComplEx; contrastive training on SAS training pairs with random negatives from all artists" ;
+    wsim:method "E1 + 0.5*E2 + 2*E3 (z = per-query standardisation)" ;
+    wsim:topK 20 ;
+    wsim:version "v0.3" .
+

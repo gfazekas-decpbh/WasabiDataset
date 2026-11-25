@@ -1,0 +1,256 @@
+{"@comment": "SAMPLE of artist_tag_prompts_v0.3.2.jsonld.gz: a few entries for viewing online. Same entries as artist_tag_prompts_v0.3.2_sample.ttl.",
+ "@context": {"@vocab":"https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#","wsim":"https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#","wsart":"http://ns.inria.fr/wasabi/artist/","sim":"https://wsim.semanticaudio.net/similarity/","xsd":"http://www.w3.org/2001/XMLSchema#","prov":"http://www.w3.org/ns/prov#","dcterms":"http://purl.org/dc/terms/","rdfs":"http://www.w3.org/2000/01/rdf-schema#","skos":"http://www.w3.org/2004/02/skos/core#","rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","id":"@id","type":"@type","source":{"@id":"wsim:source","@type":"@id"},"target":{"@id":"wsim:target","@type":"@id"},"withinGenre":{"@id":"wsim:withinGenre","@type":"@id"},"artist":{"@id":"wsim:artist","@type":"@id"},"term":{"@id":"wsim:term","@type":"@id"},"facet":{"@id":"wsim:facet","@type":"@id"},"similarTo":{"@id":"wsim:similarTo","@type":"@id"},"contrastsWithinGenre":{"@id":"wsim:contrastsWithinGenre","@type":"@id"},"involvesChord":{"@id":"wsim:involvesChord","@type":"@id"},"sharesTwoTonesWith":{"@id":"wsim:sharesTwoTonesWith","@type":"@id"},"fifthRelatedTo":{"@id":"wsim:fifthRelatedTo","@type":"@id"},"sameFunctionAs":{"@id":"wsim:sameFunctionAs","@type":"@id"},"sameRootMotionAs":{"@id":"wsim:sameRootMotionAs","@type":"@id"},"cadentialVariantOf":{"@id":"wsim:cadentialVariantOf","@type":"@id"},"neighbours":{"@reverse":"wsim:source"},"contrasts":{"@reverse":"wsim:source"},"score":{"@id":"wsim:score","@type":"xsd:float"},"generatedBy":{"@id":"prov:wasGeneratedBy","@type":"@id"},"informedBy":{"@id":"prov:wasInformedBy","@type":"@id"},"used":{"@id":"prov:used","@type":"@id"},"created":{"@id":"dcterms:created","@type":"xsd:date"},"title":"dcterms:title","label":"rdfs:label","prefLabel":"skos:prefLabel","members":{"@id":"skos:member","@type":"@id"},"name":null,"mbid":null,"targetName":null,"artistName":null,"consensusPercentile":null,"tag":null,"facetName":null},
+ "@graph": [
+  {
+   "id": "sim:v0.3.2/model",
+   "version": "v0.3.2",
+   "method": "Tags are the artist's genres and most characteristic descriptive Last.fm tags (not generated text). wsim:tagPrompt and wsim:rank follow the artist's own tag weight (genres first), which identified the artist best in a prefix round trip. Each tag is assigned to one facet (rules + MiniLM similarity to facet anchor words); wsim:tagPromptByFacet lists the same tags ordered by facet (genre/style, instruments, vocals, mood, tempo, era, place, other).",
+   "evaluation": "{\"prefix_round_trip_test\": [{\"config\": \"current order (12 tags)\", \"prefix\": \"3\", \"MRR\": 0.0335, \"R10\": 0.0665, \"genre_agree10\": 0.7113}, {\"config\": \"current order (12 tags)\", \"prefix\": \"5\", \"MRR\": 0.0402, \"R10\": 0.079, \"genre_agree10\": 0.7063}, {\"config\": \"current order (12 tags)\", \"prefix\": \"full\", \"MRR\": 0.0552, \"R10\": 0.118, \"genre_agree10\": 0.7037}, {\"config\": \"facet order, same 12 tags\", \"prefix\": \"3\", \"MRR\": 0.0257, \"R10\": 0.052, \"genre_agree10\": 0.7094}, {\"config\": \"facet order, same 12 tags\", \"prefix\": \"5\", \"MRR\": 0.0335, \"R10\": 0.064, \"genre_agree10\": 0.7039}, {\"config\": \"facet order, same 12 tags\", \"prefix\": \"full\", \"MRR\": 0.0569, \"R10\": 0.1155, \"genre_agree10\": 0.7026}, {\"config\": \"facet order, genre cap 4\", \"prefix\": \"3\", \"MRR\": 0.0257, \"R10\": 0.052, \"genre_agree10\": 0.7094}, {\"config\": \"facet order, genre cap 4\", \"prefix\": \"5\", \"MRR\": 0.0378, \"R10\": 0.0745, \"genre_agree10\": 0.7075}, {\"config\": \"facet order, genre cap 4\", \"prefix\": \"full\", \"MRR\": 0.0519, \"R10\": 0.099, \"genre_agree10\": 0.7102}]}",
+   "informedBy": "sim:v0.3/model",
+   "used": "https://zenodo.org/records/5603369",
+   "title": "WASABI artist tag prompts v0.3.2: descriptive Last.fm tags and genres per artist, ordered by facet",
+   "created": "2026-11-24",
+   "type": "SimilarityModel"
+  },
+  {
+   "id": "sim:facet/genre",
+   "type": [
+    "PromptFacet",
+    "skos:Collection"
+   ],
+   "label": "genre / style",
+   "order": 1,
+   "members": [
+    "sim:tag/alternative",
+    "sim:tag/ambient",
+    "sim:tag/downtempo",
+    "sim:tag/electronica",
+    "sim:tag/experimental",
+    "sim:tag/indie",
+    "sim:tag/trip-hop"
+   ]
+  },
+  {
+   "id": "sim:facet/vocals",
+   "type": [
+    "PromptFacet",
+    "skos:Collection"
+   ],
+   "label": "vocals",
+   "order": 3,
+   "members": [
+    "sim:tag/female-vocalists"
+   ]
+  },
+  {
+   "id": "sim:facet/mood",
+   "type": [
+    "PromptFacet",
+    "skos:Collection"
+   ],
+   "label": "mood / energy",
+   "order": 4,
+   "members": [
+    "sim:tag/beautiful",
+    "sim:tag/chill",
+    "sim:tag/chillout"
+   ]
+  },
+  {
+   "id": "sim:tag/alternative",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "alternative",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "sim:tag/ambient",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "ambient",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "sim:tag/beautiful",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "beautiful",
+   "facet": "sim:facet/mood"
+  },
+  {
+   "id": "sim:tag/chill",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "chill",
+   "facet": "sim:facet/mood"
+  },
+  {
+   "id": "sim:tag/chillout",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "chillout",
+   "facet": "sim:facet/mood"
+  },
+  {
+   "id": "sim:tag/downtempo",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "downtempo",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "sim:tag/electronica",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "electronica",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "sim:tag/experimental",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "experimental",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "sim:tag/female-vocalists",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "female vocalists",
+   "facet": "sim:facet/vocals"
+  },
+  {
+   "id": "sim:tag/indie",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "indie",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "sim:tag/trip-hop",
+   "type": [
+    "PromptTag",
+    "skos:Concept"
+   ],
+   "prefLabel": "trip hop",
+   "facet": "sim:facet/genre"
+  },
+  {
+   "id": "wsart:56d95ab6cc2ddd0c0f6b984d",
+   "name": "Portishead",
+   "mbid": "8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11",
+   "tagPrompt": "trip hop, downtempo, female vocalists, chillout, alternative, electronica, experimental, beautiful, chill, indie, ambient",
+   "tagPromptByFacet": "trip hop, downtempo, alternative, electronica, experimental, indie, ambient, female vocalists, chillout, beautiful, chill",
+   "promptTerm": [
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/1",
+     "type": "PromptTerm",
+     "rank": 1,
+     "term": "sim:tag/trip-hop",
+     "tag": "trip hop",
+     "facetName": "genre"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/2",
+     "type": "PromptTerm",
+     "rank": 2,
+     "term": "sim:tag/downtempo",
+     "tag": "downtempo",
+     "facetName": "genre"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/3",
+     "type": "PromptTerm",
+     "rank": 3,
+     "term": "sim:tag/female-vocalists",
+     "tag": "female vocalists",
+     "facetName": "vocals"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/4",
+     "type": "PromptTerm",
+     "rank": 4,
+     "term": "sim:tag/chillout",
+     "tag": "chillout",
+     "facetName": "mood"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/5",
+     "type": "PromptTerm",
+     "rank": 5,
+     "term": "sim:tag/alternative",
+     "tag": "alternative",
+     "facetName": "genre"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/6",
+     "type": "PromptTerm",
+     "rank": 6,
+     "term": "sim:tag/electronica",
+     "tag": "electronica",
+     "facetName": "genre"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/7",
+     "type": "PromptTerm",
+     "rank": 7,
+     "term": "sim:tag/experimental",
+     "tag": "experimental",
+     "facetName": "genre"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/8",
+     "type": "PromptTerm",
+     "rank": 8,
+     "term": "sim:tag/beautiful",
+     "tag": "beautiful",
+     "facetName": "mood"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/9",
+     "type": "PromptTerm",
+     "rank": 9,
+     "term": "sim:tag/chill",
+     "tag": "chill",
+     "facetName": "mood"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/10",
+     "type": "PromptTerm",
+     "rank": 10,
+     "term": "sim:tag/indie",
+     "tag": "indie",
+     "facetName": "genre"
+    },
+    {
+     "id": "sim:v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/11",
+     "type": "PromptTerm",
+     "rank": 11,
+     "term": "sim:tag/ambient",
+     "tag": "ambient",
+     "facetName": "genre"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+# SAMPLE of artist_similarity_musical_chord_profiles_v0.4.ttl.gz: a few entries for viewing online. The full graph is the .ttl.gz file in this folder.
+# Shown: Nirvana's 5 nearest artists by harmonic (chord) profile, and the model node.
+# 49 of 2321289 triples; every triple here also appears in the full dump.
+# Artists in this sample (names are not part of the RDF; artists are WASABI URIs):
+#   wsart:56d82ba653a7ddfc01f94a47  Exciter
+#   wsart:56d82ce753a7ddfc01f94c39  Farben Lehre
+#   wsart:56d82e4053a7ddfc01f94e4f  Filter
+#   wsart:56d94f26cc2ddd0c0f6b8747  Nirvana
+#   wsart:56d97091cc2ddd0c0f6bb905  Sonic Youth
+#   wsart:56d9716fcc2ddd0c0f6bba5d  Soziedad Alkoholika
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix wsart: <http://ns.inria.fr/wasabi/artist/> .
+@prefix wsim: <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://wsim.semanticaudio.net/similarity/v0.4-musical/sim/56d94f26cc2ddd0c0f6b8747-56d82ba653a7ddfc01f94a47> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.4-musical/model> ;
+    wsim:dimension "musical" ;
+    wsim:rank 1 ;
+    wsim:score "0.93684"^^xsd:float ;
+    wsim:source wsart:56d94f26cc2ddd0c0f6b8747 ;
+    wsim:target wsart:56d82ba653a7ddfc01f94a47 .
+
+<https://wsim.semanticaudio.net/similarity/v0.4-musical/sim/56d94f26cc2ddd0c0f6b8747-56d82ce753a7ddfc01f94c39> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.4-musical/model> ;
+    wsim:dimension "musical" ;
+    wsim:rank 5 ;
+    wsim:score "0.93172"^^xsd:float ;
+    wsim:source wsart:56d94f26cc2ddd0c0f6b8747 ;
+    wsim:target wsart:56d82ce753a7ddfc01f94c39 .
+
+<https://wsim.semanticaudio.net/similarity/v0.4-musical/sim/56d94f26cc2ddd0c0f6b8747-56d82e4053a7ddfc01f94e4f> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.4-musical/model> ;
+    wsim:dimension "musical" ;
+    wsim:rank 3 ;
+    wsim:score "0.93244"^^xsd:float ;
+    wsim:source wsart:56d94f26cc2ddd0c0f6b8747 ;
+    wsim:target wsart:56d82e4053a7ddfc01f94e4f .
+
+<https://wsim.semanticaudio.net/similarity/v0.4-musical/sim/56d94f26cc2ddd0c0f6b8747-56d97091cc2ddd0c0f6bb905> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.4-musical/model> ;
+    wsim:dimension "musical" ;
+    wsim:rank 4 ;
+    wsim:score "0.93172"^^xsd:float ;
+    wsim:source wsart:56d94f26cc2ddd0c0f6b8747 ;
+    wsim:target wsart:56d97091cc2ddd0c0f6bb905 .
+
+<https://wsim.semanticaudio.net/similarity/v0.4-musical/sim/56d94f26cc2ddd0c0f6b8747-56d9716fcc2ddd0c0f6bba5d> a wsim:ArtistSimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.4-musical/model> ;
+    wsim:dimension "musical" ;
+    wsim:rank 2 ;
+    wsim:score "0.93493"^^xsd:float ;
+    wsim:source wsart:56d94f26cc2ddd0c0f6b8747 ;
+    wsim:target wsart:56d9716fcc2ddd0c0f6bba5d .
+
+wsart:56d94f26cc2ddd0c0f6b8747 wsim:similarTo wsart:56d82ba653a7ddfc01f94a47,
+        wsart:56d82ce753a7ddfc01f94c39,
+        wsart:56d82e4053a7ddfc01f94e4f,
+        wsart:56d97091cc2ddd0c0f6bb905,
+        wsart:56d9716fcc2ddd0c0f6bba5d .
+
+<https://wsim.semanticaudio.net/similarity/v0.4-musical/model> a wsim:SimilarityModel ;
+    dcterms:created "2026-11-23"^^xsd:date ;
+    dcterms:title "WASABI artist similarity v0.4-musical: harmonic (chord) similarity" ;
+    prov:used <https://zenodo.org/records/5603369> ;
+    wsim:evaluation "[{\"n\": 319, \"P10\": 0.0448, \"R10\": 0.0609, \"MAP10\": 0.0268, \"MRR\": 0.1231, \"AUC\": 0.4888, \"coverage\": 222, \"P10_cov\": 0.0644, \"MAP10_cov\": 0.0385, \"MRR_cov\": 0.1769, \"AUC_cov\": 0.7024, \"eval\": \"valid / SAS pool\", \"genre_agree10\": NaN, \"genre_agree10_random\": NaN}, {\"n\": 320, \"P10\": 0.0394, \"R10\": 0.052, \"MAP10\": 0.0228, \"MRR\": 0.112, \"AUC\": 0.5022, \"coverage\": 230, \"P10_cov\": 0.0548, \"MAP10_cov\": 0.0317, \"MRR_cov\": 0.1558, \"AUC_cov\": 0.6987, \"eval\": \"test / SAS pool\", \"genre_agree10\": NaN, \"genre_agree10_random\": NaN}, {\"n\": 320, \"P10\": 0.0119, \"R10\": 0.0155, \"MAP10\": 0.007, \"MRR\": 0.0483, \"AUC\": 0.5377, \"coverage\": 230, \"P10_cov\": 0.0166, \"MAP10_cov\": 0.0097, \"MRR_cov\": 0.0672, \"AUC_cov\": 0.7481, \"eval\": \"test / all chord artists\", \"genre_agree10\": NaN, \"genre_agree10_random\": NaN}, {\"n\": 241, \"P10\": 0.0763, \"R10\": 0.1355, \"MAP10\": 0.0581, \"MRR\": 0.211, \"AUC\": 0.4283, \"coverage\": 163, \"P10_cov\": 0.1128, \"MAP10_cov\": 0.0859, \"MRR_cov\": 0.312, \"AUC_cov\": 0.6333, \"eval\": \"MIREX / MIREX pool\", \"genre_agree10\": 0.2938, \"genre_agree10_random\": 0.0928}]" ;
+    wsim:features "key-relative major/minor triads (Roman numerals in a major-key frame) and chord transitions from WASABI chordSequence (central 80% of each song, confidence>=0.5), aggregated per artist" ;
+    wsim:method "chord tf-idf (E4a)" ;
+    wsim:topK 20 ;
+    wsim:version "v0.4-musical" .
+

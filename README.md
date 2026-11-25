@@ -161,6 +161,25 @@ The following **named graphs** can be queried from our SPARQL endpoint:
 | http://ns.inria.fr/wasabi/graph/songs-extd | songs extended information: topics, emotion tags, social tags, emotion valence and arrousal |
 
 
+# Artist similarity layer (this fork)
+
+This fork adds **derived artist-similarity graphs** over WASABI artists in [`similarity/`](similarity/), created at the Centre for Digital Music, Queen Mary University of London. WASABI's own files are unchanged.
+
+| Folder | Content |
+|---|---|
+| [`similarity/cultural-similarity/`](similarity/cultural-similarity/) | 20 nearest artists for each of 36,839 artists, from Last.fm tags, genres and Wikipedia categories |
+| [`similarity/musical-similarity/`](similarity/musical-similarity/) | 20 nearest artists for each of 14,508 artists, from artist harmonic (chord) profiles |
+| [`similarity/dissimilarity/`](similarity/dissimilarity/) | The 5 least-similar artists within the same genre, plus 5 artists spanning each genre |
+| [`similarity/chord-theory/`](similarity/chord-theory/) | Music-theory relations between chords and chord transitions |
+| [`similarity/artist-tag-prompts/`](similarity/artist-tag-prompts/) | Per-artist genres and descriptive Last.fm tags, ordered and grouped by facet |
+
+- **Formats.** Each graph is provided as Turtle (`.ttl.gz`) and JSON-LD (`.jsonld.gz`, also usable as plain JSON), with small `_sample` files that can be read on GitHub.
+- **Complete archive.** All graphs, including CSV versions, the vocabulary and docs, are archived as one zip on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24511585.svg)](https://doi.org/10.5281/zenodo.24511585) [10.5281/zenodo.24511585](https://doi.org/10.5281/zenodo.24511585).
+- **Embeddings and tools.** Artist embeddings, trained models and text tools (text → artists, artist → tag prompt) are in a separate repository, [wsim-tools](https://github.com/gfazekas-decpbh/wsim-tools).
+- **Join with WASABI.** Artists are identified by their WASABI URIs, so the graphs join directly with the WASABI knowledge graph.
+- **More detail.** The vocabulary is described at the end of [`ontology/README.md`](ontology/README.md). [`similarity/README.md`](similarity/README.md) explains the sources, structure and usage, and [`similarity/wasabi-similarity-dataset.ttl`](similarity/wasabi-similarity-dataset.ttl) is a machine-readable (VoID/DCAT) description.
+
+
 # License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />

@@ -1,0 +1,60 @@
+# SAMPLE of chord_theory_graph_v0.4.ttl.gz: a few entries for viewing online. The full graph is the .ttl.gz file in this folder.
+# Shown: Chords I, IV, V, vi, ii and iii with their relations to each other; transitions V>I, IV>I, ii>I and iii>I with their chords and cadential-variant links among them.
+# 43 of 7025 triples; every triple here also appears in the full dump.
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wsim: <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+
+<https://wsim.semanticaudio.net/similarity/chord/IV-to-I> a wsim:ChordTransition ;
+    rdfs:label "IV>I" ;
+    wsim:cadentialVariantOf <https://wsim.semanticaudio.net/similarity/chord/ii-to-I> ;
+    wsim:involvesChord <https://wsim.semanticaudio.net/similarity/chord/I>,
+        <https://wsim.semanticaudio.net/similarity/chord/IV> .
+
+<https://wsim.semanticaudio.net/similarity/chord/V-to-I> a wsim:ChordTransition ;
+    rdfs:label "V>I" ;
+    wsim:cadentialVariantOf <https://wsim.semanticaudio.net/similarity/chord/iii-to-I> ;
+    wsim:involvesChord <https://wsim.semanticaudio.net/similarity/chord/I>,
+        <https://wsim.semanticaudio.net/similarity/chord/V> .
+
+<https://wsim.semanticaudio.net/similarity/chord/ii-to-I> a wsim:ChordTransition ;
+    rdfs:label "ii>I" ;
+    wsim:involvesChord <https://wsim.semanticaudio.net/similarity/chord/I>,
+        <https://wsim.semanticaudio.net/similarity/chord/ii> .
+
+<https://wsim.semanticaudio.net/similarity/chord/iii-to-I> a wsim:ChordTransition ;
+    rdfs:label "iii>I" ;
+    wsim:involvesChord <https://wsim.semanticaudio.net/similarity/chord/I>,
+        <https://wsim.semanticaudio.net/similarity/chord/iii> .
+
+<https://wsim.semanticaudio.net/similarity/chord/IV> a wsim:ChordDegree ;
+    rdfs:label "IV" ;
+    wsim:sameFunctionAs <https://wsim.semanticaudio.net/similarity/chord/ii> ;
+    wsim:sharesTwoTonesWith <https://wsim.semanticaudio.net/similarity/chord/ii>,
+        <https://wsim.semanticaudio.net/similarity/chord/vi> .
+
+<https://wsim.semanticaudio.net/similarity/chord/V> a wsim:ChordDegree ;
+    rdfs:label "V" ;
+    wsim:sharesTwoTonesWith <https://wsim.semanticaudio.net/similarity/chord/iii> .
+
+<https://wsim.semanticaudio.net/similarity/chord/ii> a wsim:ChordDegree ;
+    rdfs:label "ii" ;
+    wsim:fifthRelatedTo <https://wsim.semanticaudio.net/similarity/chord/vi> .
+
+<https://wsim.semanticaudio.net/similarity/chord/I> a wsim:ChordDegree ;
+    rdfs:label "I" ;
+    wsim:fifthRelatedTo <https://wsim.semanticaudio.net/similarity/chord/IV>,
+        <https://wsim.semanticaudio.net/similarity/chord/V> ;
+    wsim:sameFunctionAs <https://wsim.semanticaudio.net/similarity/chord/iii>,
+        <https://wsim.semanticaudio.net/similarity/chord/vi> ;
+    wsim:sharesTwoTonesWith <https://wsim.semanticaudio.net/similarity/chord/iii>,
+        <https://wsim.semanticaudio.net/similarity/chord/vi> .
+
+<https://wsim.semanticaudio.net/similarity/chord/iii> a wsim:ChordDegree ;
+    rdfs:label "iii" ;
+    wsim:fifthRelatedTo <https://wsim.semanticaudio.net/similarity/chord/vi> ;
+    wsim:sameFunctionAs <https://wsim.semanticaudio.net/similarity/chord/vi> .
+
+<https://wsim.semanticaudio.net/similarity/chord/vi> a wsim:ChordDegree ;
+    rdfs:label "vi" .
+

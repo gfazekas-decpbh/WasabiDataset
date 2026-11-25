@@ -1,0 +1,160 @@
+{"@comment": "SAMPLE of chord_theory_graph_v0.4.jsonld.gz: a few entries for viewing online. Same entries as chord_theory_graph_v0.4_sample.ttl.",
+ "@context": {"@vocab":"https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#","wsim":"https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#","wsart":"http://ns.inria.fr/wasabi/artist/","sim":"https://wsim.semanticaudio.net/similarity/","xsd":"http://www.w3.org/2001/XMLSchema#","prov":"http://www.w3.org/ns/prov#","dcterms":"http://purl.org/dc/terms/","rdfs":"http://www.w3.org/2000/01/rdf-schema#","skos":"http://www.w3.org/2004/02/skos/core#","rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","id":"@id","type":"@type","source":{"@id":"wsim:source","@type":"@id"},"target":{"@id":"wsim:target","@type":"@id"},"withinGenre":{"@id":"wsim:withinGenre","@type":"@id"},"artist":{"@id":"wsim:artist","@type":"@id"},"term":{"@id":"wsim:term","@type":"@id"},"facet":{"@id":"wsim:facet","@type":"@id"},"similarTo":{"@id":"wsim:similarTo","@type":"@id"},"contrastsWithinGenre":{"@id":"wsim:contrastsWithinGenre","@type":"@id"},"involvesChord":{"@id":"wsim:involvesChord","@type":"@id"},"sharesTwoTonesWith":{"@id":"wsim:sharesTwoTonesWith","@type":"@id"},"fifthRelatedTo":{"@id":"wsim:fifthRelatedTo","@type":"@id"},"sameFunctionAs":{"@id":"wsim:sameFunctionAs","@type":"@id"},"sameRootMotionAs":{"@id":"wsim:sameRootMotionAs","@type":"@id"},"cadentialVariantOf":{"@id":"wsim:cadentialVariantOf","@type":"@id"},"neighbours":{"@reverse":"wsim:source"},"contrasts":{"@reverse":"wsim:source"},"score":{"@id":"wsim:score","@type":"xsd:float"},"generatedBy":{"@id":"prov:wasGeneratedBy","@type":"@id"},"informedBy":{"@id":"prov:wasInformedBy","@type":"@id"},"used":{"@id":"prov:used","@type":"@id"},"created":{"@id":"dcterms:created","@type":"xsd:date"},"title":"dcterms:title","label":"rdfs:label","prefLabel":"skos:prefLabel","members":{"@id":"skos:member","@type":"@id"},"name":null,"mbid":null,"targetName":null,"artistName":null,"consensusPercentile":null,"tag":null,"facetName":null},
+ "@graph": [
+  {
+   "id": "sim:chord/I",
+   "sameFunctionAs": [
+    "sim:chord/iii",
+    "sim:chord/vi"
+   ],
+   "sharesTwoTonesWith": [
+    "sim:chord/i",
+    "sim:chord/iii",
+    "sim:chord/vi"
+   ],
+   "fifthRelatedTo": [
+    "sim:chord/IV",
+    "sim:chord/V"
+   ],
+   "label": "I",
+   "type": "ChordDegree"
+  },
+  {
+   "id": "sim:chord/IV",
+   "sharesTwoTonesWith": [
+    "sim:chord/ii",
+    "sim:chord/iv",
+    "sim:chord/vi"
+   ],
+   "sameFunctionAs": "sim:chord/ii",
+   "fifthRelatedTo": "sim:chord/bVII",
+   "label": "IV",
+   "type": "ChordDegree"
+  },
+  {
+   "id": "sim:chord/V",
+   "sharesTwoTonesWith": [
+    "sim:chord/iii",
+    "sim:chord/v",
+    "sim:chord/vii"
+   ],
+   "sameFunctionAs": "sim:chord/VII",
+   "label": "V",
+   "type": "ChordDegree"
+  },
+  {
+   "id": "sim:chord/ii",
+   "fifthRelatedTo": [
+    "sim:chord/v",
+    "sim:chord/vi"
+   ],
+   "label": "ii",
+   "type": "ChordDegree"
+  },
+  {
+   "id": "sim:chord/iii",
+   "fifthRelatedTo": [
+    "sim:chord/vi",
+    "sim:chord/vii"
+   ],
+   "sameFunctionAs": "sim:chord/vi",
+   "label": "iii",
+   "type": "ChordDegree"
+  },
+  {
+   "id": "sim:chord/vi",
+   "label": "vi",
+   "type": "ChordDegree"
+  },
+  {
+   "id": "sim:chord/IV-to-I",
+   "cadentialVariantOf": [
+    "sim:chord/bVII-to-I",
+    "sim:chord/ii-to-I",
+    "sim:chord/iv-to-I",
+    "sim:chord/vi-to-I"
+   ],
+   "sameRootMotionAs": [
+    "sim:chord/V-to-II",
+    "sim:chord/VI-to-III",
+    "sim:chord/VII-to-sharpIV",
+    "sim:chord/bVI-to-bIII",
+    "sim:chord/bVII-to-IV",
+    "sim:chord/sharpIV-to-bII"
+   ],
+   "involvesChord": [
+    "sim:chord/I",
+    "sim:chord/IV"
+   ],
+   "label": "IV>I",
+   "type": "ChordTransition"
+  },
+  {
+   "id": "sim:chord/V-to-I",
+   "cadentialVariantOf": [
+    "sim:chord/VII-to-I",
+    "sim:chord/iii-to-I",
+    "sim:chord/v-to-I",
+    "sim:chord/vii-to-I"
+   ],
+   "sameRootMotionAs": [
+    "sim:chord/VI-to-II",
+    "sim:chord/VII-to-III",
+    "sim:chord/bVI-to-bII",
+    "sim:chord/bVII-to-bIII"
+   ],
+   "involvesChord": [
+    "sim:chord/I",
+    "sim:chord/V"
+   ],
+   "label": "V>I",
+   "type": "ChordTransition"
+  },
+  {
+   "id": "sim:chord/ii-to-I",
+   "sameRootMotionAs": [
+    "sim:chord/biii-to-bII",
+    "sim:chord/bvi-to-sharpIV",
+    "sim:chord/bvii-to-bVI",
+    "sim:chord/iii-to-II",
+    "sim:chord/iv-to-bIII",
+    "sim:chord/sharpiv-to-III",
+    "sim:chord/v-to-IV",
+    "sim:chord/vi-to-V",
+    "sim:chord/vii-to-VI"
+   ],
+   "cadentialVariantOf": [
+    "sim:chord/v-to-I",
+    "sim:chord/vi-to-I"
+   ],
+   "involvesChord": [
+    "sim:chord/I",
+    "sim:chord/ii"
+   ],
+   "label": "ii>I",
+   "type": "ChordTransition"
+  },
+  {
+   "id": "sim:chord/iii-to-I",
+   "sameRootMotionAs": [
+    "sim:chord/bvi-to-III",
+    "sim:chord/bvii-to-sharpIV",
+    "sim:chord/iv-to-bII",
+    "sim:chord/sharpiv-to-II",
+    "sim:chord/v-to-bIII",
+    "sim:chord/vi-to-IV",
+    "sim:chord/vii-to-V"
+   ],
+   "cadentialVariantOf": [
+    "sim:chord/vi-to-I",
+    "sim:chord/vii-to-I"
+   ],
+   "involvesChord": [
+    "sim:chord/I",
+    "sim:chord/iii"
+   ],
+   "label": "iii>I",
+   "type": "ChordTransition"
+  }
+ ]
+}

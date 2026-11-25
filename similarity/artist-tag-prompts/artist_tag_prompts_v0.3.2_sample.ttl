@@ -1,0 +1,162 @@
+# SAMPLE of artist_tag_prompts_v0.3.2.ttl.gz: a few entries for viewing online. The full graph is the .ttl.gz file in this folder.
+# Shown: Portishead's tag prompt (both orders), its ordered terms and their tags, the facets those tags belong to, and the model node.
+# 121 of 727500 triples; every triple here also appears in the full dump.
+# Artists in this sample (names are not part of the RDF; artists are WASABI URIs):
+#   wsart:56d95ab6cc2ddd0c0f6b984d  Portishead
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wsart: <http://ns.inria.fr/wasabi/artist/> .
+@prefix wsim: <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wsart:56d95ab6cc2ddd0c0f6b984d wsim:promptTerm <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/1>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/10>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/11>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/2>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/3>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/4>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/5>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/6>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/7>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/8>,
+        <https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/9> ;
+    wsim:tagPrompt "trip hop, downtempo, female vocalists, chillout, alternative, electronica, experimental, beautiful, chill, indie, ambient" ;
+    wsim:tagPromptByFacet "trip hop, downtempo, alternative, electronica, experimental, indie, ambient, female vocalists, chillout, beautiful, chill" .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/model> a wsim:SimilarityModel ;
+    dcterms:created "2026-11-24"^^xsd:date ;
+    dcterms:title "WASABI artist tag prompts v0.3.2: descriptive Last.fm tags and genres per artist, ordered by facet" ;
+    prov:used <https://zenodo.org/records/5603369> ;
+    prov:wasInformedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:evaluation "{\"prefix_round_trip_test\": [{\"config\": \"current order (12 tags)\", \"prefix\": \"3\", \"MRR\": 0.0335, \"R10\": 0.0665, \"genre_agree10\": 0.7113}, {\"config\": \"current order (12 tags)\", \"prefix\": \"5\", \"MRR\": 0.0402, \"R10\": 0.079, \"genre_agree10\": 0.7063}, {\"config\": \"current order (12 tags)\", \"prefix\": \"full\", \"MRR\": 0.0552, \"R10\": 0.118, \"genre_agree10\": 0.7037}, {\"config\": \"facet order, same 12 tags\", \"prefix\": \"3\", \"MRR\": 0.0257, \"R10\": 0.052, \"genre_agree10\": 0.7094}, {\"config\": \"facet order, same 12 tags\", \"prefix\": \"5\", \"MRR\": 0.0335, \"R10\": 0.064, \"genre_agree10\": 0.7039}, {\"config\": \"facet order, same 12 tags\", \"prefix\": \"full\", \"MRR\": 0.0569, \"R10\": 0.1155, \"genre_agree10\": 0.7026}, {\"config\": \"facet order, genre cap 4\", \"prefix\": \"3\", \"MRR\": 0.0257, \"R10\": 0.052, \"genre_agree10\": 0.7094}, {\"config\": \"facet order, genre cap 4\", \"prefix\": \"5\", \"MRR\": 0.0378, \"R10\": 0.0745, \"genre_agree10\": 0.7075}, {\"config\": \"facet order, genre cap 4\", \"prefix\": \"full\", \"MRR\": 0.0519, \"R10\": 0.099, \"genre_agree10\": 0.7102}]}" ;
+    wsim:method "Tags are the artist's genres and most characteristic descriptive Last.fm tags (not generated text). wsim:tagPrompt and wsim:rank follow the artist's own tag weight (genres first), which identified the artist best in a prefix round trip. Each tag is assigned to one facet (rules + MiniLM similarity to facet anchor words); wsim:tagPromptByFacet lists the same tags ordered by facet (genre/style, instruments, vocals, mood, tempo, era, place, other)." ;
+    wsim:version "v0.3.2" .
+
+<https://wsim.semanticaudio.net/similarity/facet/vocals> a skos:Collection,
+        wsim:PromptFacet ;
+    rdfs:label "vocals" ;
+    skos:member <https://wsim.semanticaudio.net/similarity/tag/female-vocalists> ;
+    wsim:order 3 .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/1> a wsim:PromptTerm ;
+    wsim:rank 1 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/trip-hop> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/10> a wsim:PromptTerm ;
+    wsim:rank 10 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/indie> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/11> a wsim:PromptTerm ;
+    wsim:rank 11 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/ambient> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/2> a wsim:PromptTerm ;
+    wsim:rank 2 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/downtempo> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/3> a wsim:PromptTerm ;
+    wsim:rank 3 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/female-vocalists> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/4> a wsim:PromptTerm ;
+    wsim:rank 4 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/chillout> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/5> a wsim:PromptTerm ;
+    wsim:rank 5 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/alternative> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/6> a wsim:PromptTerm ;
+    wsim:rank 6 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/electronica> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/7> a wsim:PromptTerm ;
+    wsim:rank 7 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/experimental> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/8> a wsim:PromptTerm ;
+    wsim:rank 8 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/beautiful> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3.2/term/56d95ab6cc2ddd0c0f6b984d/9> a wsim:PromptTerm ;
+    wsim:rank 9 ;
+    wsim:term <https://wsim.semanticaudio.net/similarity/tag/chill> .
+
+<https://wsim.semanticaudio.net/similarity/tag/alternative> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "alternative" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/tag/ambient> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "ambient" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/tag/beautiful> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "beautiful" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/mood> .
+
+<https://wsim.semanticaudio.net/similarity/tag/chill> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "chill" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/mood> .
+
+<https://wsim.semanticaudio.net/similarity/tag/chillout> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "chillout" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/mood> .
+
+<https://wsim.semanticaudio.net/similarity/tag/downtempo> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "downtempo" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/tag/electronica> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "electronica" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/tag/experimental> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "experimental" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/tag/female-vocalists> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "female vocalists" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/vocals> .
+
+<https://wsim.semanticaudio.net/similarity/tag/indie> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "indie" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/tag/trip-hop> a skos:Concept,
+        wsim:PromptTag ;
+    skos:prefLabel "trip hop" ;
+    wsim:facet <https://wsim.semanticaudio.net/similarity/facet/genre> .
+
+<https://wsim.semanticaudio.net/similarity/facet/mood> a skos:Collection,
+        wsim:PromptFacet ;
+    rdfs:label "mood / energy" ;
+    skos:member <https://wsim.semanticaudio.net/similarity/tag/beautiful>,
+        <https://wsim.semanticaudio.net/similarity/tag/chill>,
+        <https://wsim.semanticaudio.net/similarity/tag/chillout> ;
+    wsim:order 4 .
+
+<https://wsim.semanticaudio.net/similarity/facet/genre> a skos:Collection,
+        wsim:PromptFacet ;
+    rdfs:label "genre / style" ;
+    skos:member <https://wsim.semanticaudio.net/similarity/tag/alternative>,
+        <https://wsim.semanticaudio.net/similarity/tag/ambient>,
+        <https://wsim.semanticaudio.net/similarity/tag/downtempo>,
+        <https://wsim.semanticaudio.net/similarity/tag/electronica>,
+        <https://wsim.semanticaudio.net/similarity/tag/experimental>,
+        <https://wsim.semanticaudio.net/similarity/tag/indie>,
+        <https://wsim.semanticaudio.net/similarity/tag/trip-hop> ;
+    wsim:order 1 .
+

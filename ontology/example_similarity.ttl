@@ -1,0 +1,96 @@
+# Example triples from each WASABI similarity graph (one item of each kind), for orientation.
+# Full graphs: ../similarity/  Vocabulary: wsim-0.1.ttl  Artists are WASABI URIs (wsart:).
+# Radiohead = wsart:56d95d7dcc2ddd0c0f6b9c59, Metallica = wsart:56d93d84ce06f50c0fed8747, Portishead = wsart:56d95ab6cc2ddd0c0f6b984d
+@prefix wsim: <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+@prefix sim: <https://wsim.semanticaudio.net/similarity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wsart: <http://ns.inria.fr/wasabi/artist/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+sim:v0.3.2\/term\/56d95ab6cc2ddd0c0f6b984d\/1 a wsim:PromptTerm ;
+	wsim:term sim:tag\/trip-hop .
+sim:tag\/trip-hop a skos:Concept , wsim:PromptTag ;
+	skos:prefLabel "trip hop" .
+wsart:56d95ab6cc2ddd0c0f6b984d wsim:promptTerm sim:v0.3.2\/term\/56d95ab6cc2ddd0c0f6b984d\/1 .
+sim:v0.3.2\/term\/56d95ab6cc2ddd0c0f6b984d\/1 wsim:rank 1 .
+sim:tag\/trip-hop wsim:facet sim:facet\/genre .
+sim:v0.3.2\/term\/56d95ab6cc2ddd0c0f6b984d\/2 a wsim:PromptTerm ;
+	wsim:term sim:tag\/downtempo .
+sim:tag\/downtempo a skos:Concept , wsim:PromptTag ;
+	skos:prefLabel "downtempo" .
+wsart:56d95ab6cc2ddd0c0f6b984d wsim:tagPrompt "trip hop, downtempo, female vocalists, chillout, alternative, electronica, experimental, beautiful, chill, indie, ambient" ;
+	wsim:tagPromptByFacet "trip hop, downtempo, alternative, electronica, experimental, indie, ambient, female vocalists, chillout, beautiful, chill" ;
+	wsim:promptTerm sim:v0.3.2\/term\/56d95ab6cc2ddd0c0f6b984d\/2 .
+sim:v0.3.2\/term\/56d95ab6cc2ddd0c0f6b984d\/2 wsim:rank 2 .
+sim:tag\/downtempo wsim:facet sim:facet\/genre .
+sim:facet\/genre a wsim:PromptFacet ;
+	rdfs:label "genre / style" ;
+	wsim:order 1 .
+sim:chord\/V-to-I wsim:involvesChord sim:chord\/I ;
+	a wsim:ChordTransition ;
+	rdfs:label "V>I" ;
+	wsim:involvesChord sim:chord\/V ;
+	wsim:cadentialVariantOf sim:chord\/iii-to-I .
+sim:chord\/I wsim:sharesTwoTonesWith sim:chord\/vi ;
+	wsim:sameFunctionAs sim:chord\/vi ;
+	rdfs:label "I" .
+sim:chord\/vi rdfs:label "vi" .
+sim:chord\/I a wsim:ChordDegree .
+sim:chord\/vi a wsim:ChordDegree .
+sim:v0.3-dis\/span\/jazz-1 a wsim:GenreSpanExemplar ;
+	wsim:withinGenre sim:genre\/jazz ;
+	wsim:artist wsart:56d98a59cc2ddd0c0f6bde27 ;
+	wsim:rank 1 ;
+	wsim:role "core" ;
+	prov:wasGeneratedBy sim:v0.3-dis\/model .
+sim:v0.3-dis\/span\/jazz-2 a wsim:GenreSpanExemplar ;
+	wsim:withinGenre sim:genre\/jazz ;
+	wsim:artist wsart:56d84b1953a7ddfc01f9779e ;
+	wsim:rank 2 ;
+	wsim:role "contrast" ;
+	prov:wasGeneratedBy sim:v0.3-dis\/model .
+sim:v0.3-dis\/span\/jazz-3 a wsim:GenreSpanExemplar ;
+	wsim:withinGenre sim:genre\/jazz ;
+	wsim:artist wsart:56d80b3853a7ddfc01f91c46 ;
+	wsim:rank 3 ;
+	wsim:role "contrast" ;
+	prov:wasGeneratedBy sim:v0.3-dis\/model .
+sim:v0.3-dis\/span\/jazz-4 a wsim:GenreSpanExemplar ;
+	wsim:withinGenre sim:genre\/jazz ;
+	wsim:artist wsart:56d8095f53a7ddfc01f919bd ;
+	wsim:rank 4 ;
+	wsim:role "contrast" ;
+	prov:wasGeneratedBy sim:v0.3-dis\/model .
+sim:v0.3-dis\/span\/jazz-5 a wsim:GenreSpanExemplar ;
+	wsim:withinGenre sim:genre\/jazz ;
+	wsim:artist wsart:56d96a83cc2ddd0c0f6baf9c ;
+	wsim:rank 5 ;
+	wsim:role "contrast" ;
+	prov:wasGeneratedBy sim:v0.3-dis\/model .
+sim:v0.3-dis\/dis\/56d93d84ce06f50c0fed8747-56d97715cc2ddd0c0f6bc339-thrash-metal a wsim:ArtistDissimilarity ;
+	wsim:source wsart:56d93d84ce06f50c0fed8747 ;
+	wsim:target wsart:56d97715cc2ddd0c0f6bc339 ;
+	wsim:withinGenre sim:genre\/thrash-metal ;
+	wsim:score "5.2139"^^xsd:float ;
+	wsim:rank 1 ;
+	wsim:genreConfirmedByTags true ;
+	wsim:dimension "cultural" ;
+	prov:wasGeneratedBy sim:v0.3-dis\/model .
+sim:genre\/thrash-metal a wsim:Genre ;
+	rdfs:label "thrash metal" .
+sim:v0.4-musical\/sim\/57c92593e5c453a411c77256-56d852e253a7ddfc01f982b9 a wsim:ArtistSimilarity ;
+	wsim:source wsart:57c92593e5c453a411c77256 ;
+	wsim:target wsart:56d852e253a7ddfc01f982b9 ;
+	wsim:score "1"^^xsd:float ;
+	wsim:rank 1 ;
+	wsim:dimension "musical" ;
+	prov:wasGeneratedBy sim:v0.4-musical\/model .
+sim:v0.3\/sim\/56d95d7dcc2ddd0c0f6b9c59-56d94a57cc2ddd0c0f6b8073 a wsim:ArtistSimilarity ;
+	wsim:source wsart:56d95d7dcc2ddd0c0f6b9c59 ;
+	wsim:target wsart:56d94a57cc2ddd0c0f6b8073 ;
+	wsim:score "15.68992"^^xsd:float ;
+	wsim:rank 1 ;
+	wsim:dimension "cultural" ;
+	prov:wasGeneratedBy sim:v0.3\/model .
+wsart:56d95d7dcc2ddd0c0f6b9c59 wsim:similarTo wsart:56d94a57cc2ddd0c0f6b8073 .

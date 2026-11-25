@@ -1,0 +1,73 @@
+@prefix wsim:    <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+@prefix mo:      <http://purl.org/ontology/mo/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl> a owl:Ontology ;
+    dcterms:title "WASABI artist similarity vocabulary" ;
+    rdfs:comment "Small vocabulary for releasing artist-similarity graphs computed over the WASABI knowledge graph. Terms resolve to this file." .
+
+wsim:ArtistSimilarity a owl:Class ; rdfs:label "artist similarity statement" ;
+    rdfs:comment "A scored, ranked similarity link from a source artist to a target artist, produced by a similarity model." .
+wsim:SimilarityModel a owl:Class ; rdfs:subClassOf prov:Activity ; rdfs:label "similarity model run" .
+
+wsim:similarTo a owl:ObjectProperty ; rdfs:subPropertyOf mo:similar_to ; rdfs:label "similar to (top-k)" ;
+    rdfs:comment "Shortcut: target is among the source artist's top-k neighbours in at least one released model. See wsim:ArtistSimilarity nodes for scores and provenance." .
+wsim:source a owl:ObjectProperty ; rdfs:domain wsim:ArtistSimilarity ; rdfs:range mo:MusicArtist .
+wsim:target a owl:ObjectProperty ; rdfs:domain wsim:ArtistSimilarity ; rdfs:range mo:MusicArtist .
+wsim:score a owl:DatatypeProperty ; rdfs:domain wsim:ArtistSimilarity ; rdfs:range xsd:float ; rdfs:comment "Model score, higher = more similar (cosine in [0,1] for v0.1)." .
+wsim:rank a owl:DatatypeProperty ; rdfs:domain wsim:ArtistSimilarity ; rdfs:range xsd:integer ; rdfs:comment "1-based rank of target among source's neighbours." .
+wsim:dimension a owl:DatatypeProperty ; rdfs:domain wsim:ArtistSimilarity ; rdfs:comment "cultural | collaborative | musical | combined" .
+wsim:method a owl:DatatypeProperty ; rdfs:domain wsim:SimilarityModel .
+wsim:features a owl:DatatypeProperty ; rdfs:domain wsim:SimilarityModel .
+wsim:topK a owl:DatatypeProperty ; rdfs:domain wsim:SimilarityModel ; rdfs:range xsd:integer .
+wsim:version a owl:DatatypeProperty ; rdfs:domain wsim:SimilarityModel .
+wsim:evaluation a owl:DatatypeProperty ; rdfs:domain wsim:SimilarityModel ; rdfs:comment "JSON string with evaluation metrics." .
+
+# --- T2 (v0.3-dis): within-genre dissimilarity -------------------------------------------------------------------
+wsim:ArtistDissimilarity a owl:Class ; rdfs:label "within-genre artist dissimilarity statement" ;
+    rdfs:comment "A scored, ranked link from a source artist to one of the least similar artists in a genre both belong to." .
+wsim:Genre a owl:Class ; rdfs:label "genre (merged WASABI genre label)" .
+wsim:GenreSpanExemplar a owl:Class ; rdfs:label "genre span exemplar" ;
+    rdfs:comment "One of a small set of well-documented artists chosen to span the stylistic range of a genre (farthest-point sampling)." .
+wsim:withinGenre a owl:ObjectProperty ; rdfs:range wsim:Genre .
+wsim:contrastsWithinGenre a owl:ObjectProperty ; rdfs:label "contrasts with (within a shared genre)" ;
+    rdfs:comment "Shortcut: target is among the source's least similar artists within a shared genre. See wsim:ArtistDissimilarity for genre, score and rank." .
+wsim:genreConfirmedByTags a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+wsim:artist a owl:ObjectProperty ; rdfs:range mo:MusicArtist .
+wsim:role a owl:DatatypeProperty ; rdfs:comment "core | contrast" .
+
+# --- artist tag prompts (v0.3.2) -------------------------------------------------------------------------------
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+wsim:tagPrompt a owl:DatatypeProperty ; rdfs:domain mo:MusicArtist ; rdfs:label "tag prompt" ;
+    rdfs:comment "Comma-separated list of the artist's genres and most characteristic descriptive Last.fm tags, ordered by facet. These are listener TAGS, not generated text; usable as a keyword prompt for text-to-audio models." .
+wsim:promptTerm a owl:ObjectProperty ; rdfs:domain mo:MusicArtist ; rdfs:range wsim:PromptTerm ; rdfs:comment "One position in the artist's tag prompt." .
+wsim:PromptTerm a owl:Class ; rdfs:label "tag prompt term" ; rdfs:comment "A tag at a given wsim:rank (1 = first) in an artist's tag prompt." .
+wsim:term a owl:ObjectProperty ; rdfs:domain wsim:PromptTerm ; rdfs:range wsim:PromptTag .
+wsim:PromptTag a owl:Class ; rdfs:subClassOf skos:Concept ; rdfs:label "prompt tag" ; rdfs:comment "A descriptive Last.fm tag or genre used in tag prompts." .
+wsim:facet a owl:ObjectProperty ; rdfs:domain wsim:PromptTag ; rdfs:range wsim:PromptFacet .
+wsim:PromptFacet a owl:Class ; rdfs:subClassOf skos:Collection ; rdfs:label "tag facet" ;
+    rdfs:comment "Kind of description a tag gives (genre/style, instruments, vocals, mood, tempo, era, place, other); members via skos:member." .
+wsim:order a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:comment "Position of a facet in tag prompts (1 = first)." .
+wsim:tagPromptByFacet a owl:DatatypeProperty ; rdfs:domain mo:MusicArtist ; rdfs:label "tag prompt, facet order" ;
+    rdfs:comment "The same tags as wsim:tagPrompt, ordered by facet (genre/style, instruments, vocals, mood, tempo, era, place, other)." .
+
+# --- chord-theory graph (v0.4) ---------------------------------------------------------------------------------------
+wsim:ChordDegree a owl:Class ; rdfs:label "chord degree" ;
+    rdfs:comment "A major or minor triad as a key-relative Roman numeral (upper case = major, lower case = minor), e.g. V, vi, bVII." .
+wsim:ChordTransition a owl:Class ; rdfs:label "chord transition" ; rdfs:comment "A change from one chord degree to another, e.g. V-to-I." .
+wsim:sharesTwoTonesWith a owl:SymmetricProperty, owl:ObjectProperty ; rdfs:domain wsim:ChordDegree ; rdfs:range wsim:ChordDegree ;
+    rdfs:comment "The two triads share two of their three pitch classes (relative, parallel, mediant relations)." .
+wsim:fifthRelatedTo a owl:SymmetricProperty, owl:ObjectProperty ; rdfs:domain wsim:ChordDegree ; rdfs:range wsim:ChordDegree ;
+    rdfs:comment "Triads of the same quality whose roots are a fifth apart (circle-of-fifths neighbours)." .
+wsim:sameFunctionAs a owl:SymmetricProperty, owl:ObjectProperty ; rdfs:domain wsim:ChordDegree ; rdfs:range wsim:ChordDegree ;
+    rdfs:comment "Same diatonic function: tonic (I, iii, vi), subdominant (ii, IV) or dominant (V, VII)." .
+wsim:involvesChord a owl:ObjectProperty ; rdfs:domain wsim:ChordTransition ; rdfs:range wsim:ChordDegree ;
+    rdfs:comment "A chord the transition starts from or goes to." .
+wsim:sameRootMotionAs a owl:SymmetricProperty, owl:ObjectProperty ; rdfs:domain wsim:ChordTransition ; rdfs:range wsim:ChordTransition ;
+    rdfs:comment "Transitions with the same root movement interval and the same chord qualities, e.g. V-to-I and II-to-V." .
+wsim:cadentialVariantOf a owl:SymmetricProperty, owl:ObjectProperty ; rdfs:domain wsim:ChordTransition ; rdfs:range wsim:ChordTransition ;
+    rdfs:comment "Transitions into the same target chord from theory-related source chords, e.g. V-to-I ~ II-to-I and V-to-I ~ iii-to-I (dominant family), IV-to-I ~ ii-to-I (plagal family)." .

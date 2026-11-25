@@ -1,0 +1,112 @@
+{
+ "@context": {
+  "@vocab": "https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#",
+  "wsim": "https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#",
+  "wsart": "http://ns.inria.fr/wasabi/artist/",
+  "sim": "https://wsim.semanticaudio.net/similarity/",
+  "xsd": "http://www.w3.org/2001/XMLSchema#",
+  "prov": "http://www.w3.org/ns/prov#",
+  "dcterms": "http://purl.org/dc/terms/",
+  "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "skos": "http://www.w3.org/2004/02/skos/core#",
+  "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+  "id": "@id",
+  "type": "@type",
+  "source": {
+   "@id": "wsim:source",
+   "@type": "@id"
+  },
+  "target": {
+   "@id": "wsim:target",
+   "@type": "@id"
+  },
+  "withinGenre": {
+   "@id": "wsim:withinGenre",
+   "@type": "@id"
+  },
+  "artist": {
+   "@id": "wsim:artist",
+   "@type": "@id"
+  },
+  "term": {
+   "@id": "wsim:term",
+   "@type": "@id"
+  },
+  "facet": {
+   "@id": "wsim:facet",
+   "@type": "@id"
+  },
+  "similarTo": {
+   "@id": "wsim:similarTo",
+   "@type": "@id"
+  },
+  "contrastsWithinGenre": {
+   "@id": "wsim:contrastsWithinGenre",
+   "@type": "@id"
+  },
+  "involvesChord": {
+   "@id": "wsim:involvesChord",
+   "@type": "@id"
+  },
+  "sharesTwoTonesWith": {
+   "@id": "wsim:sharesTwoTonesWith",
+   "@type": "@id"
+  },
+  "fifthRelatedTo": {
+   "@id": "wsim:fifthRelatedTo",
+   "@type": "@id"
+  },
+  "sameFunctionAs": {
+   "@id": "wsim:sameFunctionAs",
+   "@type": "@id"
+  },
+  "sameRootMotionAs": {
+   "@id": "wsim:sameRootMotionAs",
+   "@type": "@id"
+  },
+  "cadentialVariantOf": {
+   "@id": "wsim:cadentialVariantOf",
+   "@type": "@id"
+  },
+  "neighbours": {
+   "@reverse": "wsim:source"
+  },
+  "contrasts": {
+   "@reverse": "wsim:source"
+  },
+  "score": {
+   "@id": "wsim:score",
+   "@type": "xsd:float"
+  },
+  "generatedBy": {
+   "@id": "prov:wasGeneratedBy",
+   "@type": "@id"
+  },
+  "informedBy": {
+   "@id": "prov:wasInformedBy",
+   "@type": "@id"
+  },
+  "used": {
+   "@id": "prov:used",
+   "@type": "@id"
+  },
+  "created": {
+   "@id": "dcterms:created",
+   "@type": "xsd:date"
+  },
+  "title": "dcterms:title",
+  "label": "rdfs:label",
+  "prefLabel": "skos:prefLabel",
+  "members": {
+   "@id": "skos:member",
+   "@type": "@id"
+  },
+  "name": null,
+  "mbid": null,
+  "targetName": null,
+  "artistName": null,
+  "consensusPercentile": null,
+  "tag": null,
+  "facetName": null
+ }
+}

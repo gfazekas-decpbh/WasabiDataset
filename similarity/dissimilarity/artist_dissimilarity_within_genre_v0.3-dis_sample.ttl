@@ -1,0 +1,131 @@
+# SAMPLE of artist_dissimilarity_within_genre_v0.3-dis.ttl.gz: a few entries for viewing online. The full graph is the .ttl.gz file in this folder.
+# Shown: Metallica's 5 least-similar artists within thrash metal, the 5 jazz span exemplars, and the model node.
+# 94 of 908165 triples; every triple here also appears in the full dump.
+# Artists in this sample (names are not part of the RDF; artists are WASABI URIs):
+#   wsart:56d7fcf153a7ddfc01f907ac  Aura Noir
+#   wsart:56d8095f53a7ddfc01f919bd  Bruce Hornsby
+#   wsart:56d80b3853a7ddfc01f91c46  Caetano Veloso
+#   wsart:56d81a6253a7ddfc01f9319d  Darkane
+#   wsart:56d81e5853a7ddfc01f9375e  Desaster
+#   wsart:56d84b1953a7ddfc01f9779e  John Mayall
+#   wsart:56d93d84ce06f50c0fed8747  Metallica
+#   wsart:56d96a83cc2ddd0c0f6baf9c  Serge Gainsbourg
+#   wsart:56d9716fcc2ddd0c0f6bba5d  Soziedad Alkoholika
+#   wsart:56d97715cc2ddd0c0f6bc339  Sworn Enemy
+#   wsart:56d98a59cc2ddd0c0f6bde27  Tony Bennett
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wsart: <http://ns.inria.fr/wasabi/artist/> .
+@prefix wsim: <https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/dis/56d93d84ce06f50c0fed8747-56d7fcf153a7ddfc01f907ac-thrash-metal> a wsim:ArtistDissimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:dimension "cultural" ;
+    wsim:genreConfirmedByTags true ;
+    wsim:rank 4 ;
+    wsim:score "4.1237"^^xsd:float ;
+    wsim:source wsart:56d93d84ce06f50c0fed8747 ;
+    wsim:target wsart:56d7fcf153a7ddfc01f907ac ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/thrash-metal> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/dis/56d93d84ce06f50c0fed8747-56d81a6253a7ddfc01f9319d-thrash-metal> a wsim:ArtistDissimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:dimension "cultural" ;
+    wsim:genreConfirmedByTags true ;
+    wsim:rank 3 ;
+    wsim:score "7.7269"^^xsd:float ;
+    wsim:source wsart:56d93d84ce06f50c0fed8747 ;
+    wsim:target wsart:56d81a6253a7ddfc01f9319d ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/thrash-metal> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/dis/56d93d84ce06f50c0fed8747-56d81e5853a7ddfc01f9375e-thrash-metal> a wsim:ArtistDissimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:dimension "cultural" ;
+    wsim:genreConfirmedByTags true ;
+    wsim:rank 2 ;
+    wsim:score "5.1813"^^xsd:float ;
+    wsim:source wsart:56d93d84ce06f50c0fed8747 ;
+    wsim:target wsart:56d81e5853a7ddfc01f9375e ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/thrash-metal> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/dis/56d93d84ce06f50c0fed8747-56d9716fcc2ddd0c0f6bba5d-thrash-metal> a wsim:ArtistDissimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:dimension "cultural" ;
+    wsim:genreConfirmedByTags true ;
+    wsim:rank 5 ;
+    wsim:score "5.137"^^xsd:float ;
+    wsim:source wsart:56d93d84ce06f50c0fed8747 ;
+    wsim:target wsart:56d9716fcc2ddd0c0f6bba5d ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/thrash-metal> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/dis/56d93d84ce06f50c0fed8747-56d97715cc2ddd0c0f6bc339-thrash-metal> a wsim:ArtistDissimilarity ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:dimension "cultural" ;
+    wsim:genreConfirmedByTags true ;
+    wsim:rank 1 ;
+    wsim:score "5.2139"^^xsd:float ;
+    wsim:source wsart:56d93d84ce06f50c0fed8747 ;
+    wsim:target wsart:56d97715cc2ddd0c0f6bc339 ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/thrash-metal> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/span/jazz-1> a wsim:GenreSpanExemplar ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:artist wsart:56d98a59cc2ddd0c0f6bde27 ;
+    wsim:rank 1 ;
+    wsim:role "core" ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/jazz> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/span/jazz-2> a wsim:GenreSpanExemplar ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:artist wsart:56d84b1953a7ddfc01f9779e ;
+    wsim:rank 2 ;
+    wsim:role "contrast" ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/jazz> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/span/jazz-3> a wsim:GenreSpanExemplar ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:artist wsart:56d80b3853a7ddfc01f91c46 ;
+    wsim:rank 3 ;
+    wsim:role "contrast" ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/jazz> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/span/jazz-4> a wsim:GenreSpanExemplar ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:artist wsart:56d8095f53a7ddfc01f919bd ;
+    wsim:rank 4 ;
+    wsim:role "contrast" ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/jazz> .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/span/jazz-5> a wsim:GenreSpanExemplar ;
+    prov:wasGeneratedBy <https://wsim.semanticaudio.net/similarity/v0.3-dis/model> ;
+    wsim:artist wsart:56d96a83cc2ddd0c0f6baf9c ;
+    wsim:rank 5 ;
+    wsim:role "contrast" ;
+    wsim:withinGenre <https://wsim.semanticaudio.net/similarity/genre/jazz> .
+
+wsart:56d93d84ce06f50c0fed8747 wsim:contrastsWithinGenre wsart:56d7fcf153a7ddfc01f907ac,
+        wsart:56d81a6253a7ddfc01f9319d,
+        wsart:56d81e5853a7ddfc01f9375e,
+        wsart:56d9716fcc2ddd0c0f6bba5d,
+        wsart:56d97715cc2ddd0c0f6bc339 .
+
+<https://wsim.semanticaudio.net/similarity/genre/jazz> a wsim:Genre ;
+    rdfs:label "jazz" .
+
+<https://wsim.semanticaudio.net/similarity/genre/thrash-metal> a wsim:Genre ;
+    rdfs:label "thrash metal" .
+
+<https://wsim.semanticaudio.net/similarity/v0.3-dis/model> a wsim:SimilarityModel ;
+    dcterms:created "2026-11-24"^^xsd:date ;
+    dcterms:title "WASABI within-genre artist dissimilarity v0.3-dis: 5 least-similar artists per artist and genre" ;
+    prov:used <https://zenodo.org/records/5603369> ;
+    prov:wasInformedBy <https://wsim.semanticaudio.net/similarity/v0.3/model> ;
+    wsim:evaluation "[{\"config\": \"random|both_tagged|tags>=20\", \"links\": 90340, \"sources\": 8232, \"genres\": 153, \"chord_dist\": 0.4386976623189094, \"tag_jaccard\": 0.1209150877301832, \"top1pct_target_share\": 0.0459043613017489, \"max_indegree\": 56, \"sas_leak\": 0.0049147664379012}, {\"config\": \"rankcons|center=True|both_tagged|tags>=20|band=0.00-0.00\", \"links\": 90340, \"sources\": 8232, \"genres\": 153, \"chord_dist\": 0.4745765486014272, \"tag_jaccard\": 0.0656531668804674, \"top1pct_target_share\": 0.0878127075492583, \"max_indegree\": 137, \"sas_leak\": 0.0001106929377905}]" ;
+    wsim:features "same as v0.3; genres = merged DBpedia + album genre labels (>= 20 eligible artists)" ;
+    wsim:method "v0.3 component scores (E1 TF-IDF, E2 ComplEx, E3 transformer), symmetrised; within each genre double-centred (row and column means removed) and converted to within-row percentiles; consensus = max percentile over the three views; the 5 lowest are kept. Artists need >= 20 Last.fm tags, and the Last.fm tags of both artists must mention the genre." ;
+    wsim:topK 5 ;
+    wsim:version "v0.3-dis" .
+

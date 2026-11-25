@@ -65,3 +65,32 @@ To describe chords:
 
 
 
+
+## Artist similarity vocabulary (wsim, this fork)
+
+This fork adds a small vocabulary for the derived artist-similarity graphs in [`../similarity/`](../similarity/). WASABI's `wsb` ontology above is unchanged.
+
+- **File:** [`wsim-0.1.ttl`](wsim-0.1.ttl), version 0.1, OWL in Turtle.
+- **Namespace:** `wsim:` = `https://wsim.semanticaudio.net/ontology/wsim-0.1.ttl#`. Term URIs resolve to the vocabulary file.
+- **JSON-LD context:** [`wsim-0.1.context.jsonld`](wsim-0.1.context.jsonld), used by the `.jsonld.gz` files.
+- **Examples:** [`example_similarity.ttl`](example_similarity.ttl), one item of every kind.
+- **Reused vocabularies:** Music Ontology (`mo:MusicArtist`, `wsim:similarTo` ⊑ `mo:similar_to`), PROV-O (model provenance), Dublin Core terms, SKOS (tags and facets).
+
+### Classes
+- **artist similarity** (`wsim:ArtistSimilarity`): a scored, ranked link from a source artist to a target artist, produced by a model
+- **artist dissimilarity** (`wsim:ArtistDissimilarity`): a link to one of the least-similar artists within a shared genre
+- **similarity model** (`wsim:SimilarityModel`, ⊑ `prov:Activity`): the model run that produced a graph, with method, features and evaluation
+- **genre** (`wsim:Genre`) and **genre span exemplar** (`wsim:GenreSpanExemplar`)
+- **chord degree** (`wsim:ChordDegree`) and **chord transition** (`wsim:ChordTransition`)
+- **prompt term** (`wsim:PromptTerm`), **prompt tag** (`wsim:PromptTag`, ⊑ `skos:Concept`) and **prompt facet** (`wsim:PromptFacet`, ⊑ `skos:Collection`)
+
+### Properties
+- **Similarity and dissimilarity links:**
+  - `wsim:source`, `wsim:target`, `wsim:score`, `wsim:rank`;
+  - `wsim:dimension` (`cultural` or `musical`);
+  - `wsim:withinGenre`, `wsim:genreConfirmedByTags`;
+  - shortcuts `wsim:similarTo` and `wsim:contrastsWithinGenre`.
+- **Models:** `wsim:version`, `wsim:method`, `wsim:features`, `wsim:topK`, `wsim:evaluation`.
+- **Genre spans:** `wsim:artist`, `wsim:role`.
+- **Chords:** `wsim:sharesTwoTonesWith`, `wsim:fifthRelatedTo`, `wsim:sameFunctionAs`, `wsim:involvesChord`, `wsim:sameRootMotionAs`, `wsim:cadentialVariantOf`.
+- **Tag prompts:** `wsim:tagPrompt`, `wsim:tagPromptByFacet`, `wsim:promptTerm`, `wsim:term`, `wsim:facet`, `wsim:order`.
